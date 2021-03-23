@@ -1,0 +1,9 @@
+[name='Stage']{
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: unset;
+    border: 1px solid black;
+    margin-right: 3px;
+    justify-content: space-evenly;
+    padding: 10px;
+}
