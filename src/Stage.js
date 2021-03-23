@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './stage.css'
 import Tasks from './Tasks'
+import { DragDropContext ,Droppable,Draggable  } from 'react-beautiful-dnd';
 
 class Stage extends Component {
     constructor(props){
@@ -18,12 +19,11 @@ class Stage extends Component {
     }
   render() {
       const{tasks,stageName}=this.props
-      console.log(tasks)
     return (
         <React.Fragment>
       <div name='Stage'>
        <h4>{stageName}</h4>
-       {<Tasks tasks={tasks}/>}
+       {<DragDropContext onDragEnd={()=>{}}><Tasks tasks={tasks}/> </DragDropContext>}
        <button onClick={this.addTask} >Add Task</button>
       </div>
       {this.state.modal == 'add' ? <div className="addTaskModal">

@@ -21,7 +21,6 @@ class Board extends Component {
     }
     addTask=(content,stage)=>{
         Tasks.addTask(content,stage.toLowerCase());
-        console.log(Tasks.tasks)
         this.setState({tasks:Tasks.tasks})
     }
     

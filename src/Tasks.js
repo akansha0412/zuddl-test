@@ -6,7 +6,7 @@ class Tasks extends Component {
       const{tasks}=this.props
     return (
         <React.Fragment>
-            <DragDropContext onDragEnd={()=>{}}>
+            {/* <DragDropContext onDragEnd={()=>{}}> */}
             <Droppable droppableId="tasks">
     {(provided) => (
      <ul className="tasks" {...provided.droppableProps} ref={provided.innerRef} style={{listStyleType: 'none'}}>
@@ -14,8 +14,8 @@ class Tasks extends Component {
      {tasks.map((task,index)=>{
 return (
 <Draggable key={task.id.toString()} draggableId={task.id.toString()} index={index}>
-      {(provided) => (
-<li name='task' draggable='true'  ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={{height:'30px',padding:'10px',border:'1px solid grey',margin:'5px'}}>
+      {(provided,snapshot) => (
+<li name='task' isDragging={snapshot.isDragging} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={{height:'30px',padding:'10px',border:'1px solid grey',margin:'5px'}}>
  {task.content} 
 </li>        
       )}
@@ -29,7 +29,11 @@ return (
     )}
   </Droppable>
             
-            </DragDropContext>
+            {/* </DragDropContext> */}
       </React.Fragment>
       
     );
+  }
+}
+
+export default Tasks;
